@@ -1,6 +1,7 @@
 "use client";
 import { Compass, Layout } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { SidebarItem } from "./sidebar-items";
 
 
 
@@ -19,9 +20,10 @@ const guestRoutes = [
 
 export const SidebarRoutes = () => {
     const pathname = usePathname();
+
     return (
-        <div>
-            Routes
+        <div className="flex flex-col w-full">
+            <SidebarItem/>
         </div>
     )
 }
