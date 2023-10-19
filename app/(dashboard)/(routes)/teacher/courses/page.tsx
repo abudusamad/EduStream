@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
 
@@ -8,6 +9,11 @@ const CoursesPage = () => {
             Courses
        </Button>
         </Link>
+=======
+const CoursesPage = () => {
+    return (<div>
+        This is a course page
+>>>>>>> dd2e269 (Finished with the courses and the anlytics page)
     </div> );
 }
  
