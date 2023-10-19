@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Button } from "@/components/ui/button";
 import { Link } from "lucide-react";
 
@@ -16,5 +17,19 @@ const CoursesPage = () => {
 >>>>>>> dd2e269 (Finished with the courses and the anlytics page)
     </div> );
 }
+=======
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+
+const CoursesPage = () => {
+	return (
+		<div className="p-6">
+			<Link href="/teacher/create">
+				<Button variant="destructive">New Course</Button>
+			</Link>
+		</div>
+	);
+};
+>>>>>>> 228026d (Adding forms and inputs to the page for creating results)
  
 export default CoursesPage;

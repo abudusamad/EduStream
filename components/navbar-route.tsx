@@ -50,7 +50,7 @@ import Link from "next/link";
 export const NavbarRoutes = () => {
 	const pathname = usePathname();
 
-	const isTeacherPage = pathname?.startsWith("/");
+	const isTeacherPage = pathname?.startsWith("/teacher");
 	const isPlayerPage = pathname?.includes("/chapter");
 
 	return (

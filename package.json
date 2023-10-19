@@ -11,12 +11,18 @@
   "dependencies": {
     "@clerk/nextjs": "^4.25.5",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-label": "^2.0.2",
 =======
     "@radix-ui/react-dialog": "^1.0.5",
 >>>>>>> bd4e98f (working on the navbar)
+=======
+    "@hookform/resolvers": "^3.3.2",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.0.2",
+>>>>>>> 228026d (Adding forms and inputs to the page for creating results)
     "@radix-ui/react-slot": "^1.0.2",
     "@types/node": "20.8.6",
     "@types/react": "18.2.28",
