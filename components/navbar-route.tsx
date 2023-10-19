@@ -1,6 +1,7 @@
 "use client";
 
 import { UserButton } from "@clerk/nextjs";
+<<<<<<< HEAD
 import { Link, LogOut } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
@@ -30,3 +31,12 @@ export const NavbarRoutes = () => {
 		</div>
 	);
 };
+=======
+
+export const NavbarRoutes = () => {
+    return (<div className="flex gap-x-2 ml-auto">
+        <UserButton/>
+    
+</div>)
+}
+>>>>>>> bd4e98f (working on the navbar)
