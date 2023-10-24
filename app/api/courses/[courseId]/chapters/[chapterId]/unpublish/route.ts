@@ -27,33 +27,30 @@ export async function PATCH(
 				courseId: params.courseId,
 			},
 		});
-
-		const unpublishedChapter = await db.chapter.update({
+		const muxData = await db.muxData.findUnique({
+			where: {
+				chapterId: params.chapterId,
+			},
+		});
+		if (
+			!chapter ||
+			!muxData ||
+			!chapter.title ||
+			!chapter.description ||
+			!chapter.videoUrl
+		) {
+			return new NextResponse("Missing required Fields", { status: 400 });
+		}
+		const publishedChapter = await db.chapter.update({
 			where: {
 				id: params.chapterId,
 				courseId: params.courseId,
 			},
 			data: {
-				isPublished: false,
+				isPublished: true,
 			},
-        });
-        const publishedChaptersInCourse = await db.chapter.findMany({
-            where: {
-                courseId: params.courseId,
-                isPublished: true,
-            }
-        })
-        if (!publishedChaptersInCourse) {
-            await db.course.update({
-                where: {
-                    id: params.courseId,
-                },
-                data: {
-                    isPublished: false,
-                }
-            })
-        }
-		return NextResponse.json(unpublishedChapter);
+		});
+		return NextResponse.json(publishedChapter);
 	} catch (error) {
 		console.log("[CHAPTER_UNPUBLISHED]", error);
 		return new NextResponse("Internal Error", { status: 500 });

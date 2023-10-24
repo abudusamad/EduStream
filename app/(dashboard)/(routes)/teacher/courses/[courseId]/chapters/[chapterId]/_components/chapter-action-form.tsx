@@ -63,7 +63,7 @@ export const ChapterActionForm = ({
 	return (
 		<div className="flex items-center gap-x-2">
 			<Button
-				onClick={() => {}}
+				onClick={onClick}
 				disabled={disabled || isLoading}
 				variant="outline"
 				size="sm"
