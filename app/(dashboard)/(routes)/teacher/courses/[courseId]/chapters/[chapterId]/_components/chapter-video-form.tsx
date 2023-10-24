@@ -1,17 +1,16 @@
 "use client";
 
-import * as z from "zod";
-import axios from "axios";
 import MuxPlayer from "@mux/mux-player-react";
+import { Chapter, MuxData } from "@prisma/client";
+import axios from "axios";
 import { Pencil, PlusCircle, Video } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
-import { Chapter, MuxData } from "@prisma/client";
-import Image from "next/image";
+import * as z from "zod";
 
-import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
+import { Button } from "@/components/ui/button";
 
 interface ChapterVideoFormProps {
 	initialData: Chapter & { muxData?: MuxData | null };
@@ -19,7 +18,7 @@ interface ChapterVideoFormProps {
 	chapterId: string;
 }
 
-const formSchema = z.object({  
+const formSchema = z.object({
 	videoUrl: z.string().min(1),
 });
 
