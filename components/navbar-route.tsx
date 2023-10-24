@@ -1,13 +1,25 @@
 "use client";
 
+<<<<<<< HEAD
 import { UserButton } from "@clerk/nextjs"
 import Link from "next/link";
+=======
+import { UserButton } from "@clerk/nextjs";
+import { LogOut} from "lucide-react";
+>>>>>>> 615bf4af3c9c9908287fdde42ccc75cacc4d50bb
 import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 
+<<<<<<< HEAD
 
 export const NavbarRoute = () => {
+=======
+import Link from "next/link"
+
+
+export const NavbarRoutes = () => {
+>>>>>>> 615bf4af3c9c9908287fdde42ccc75cacc4d50bb
 	const pathname = usePathname();
 
 	const isTeacherPage = pathname?.startsWith("/teacher");
@@ -36,5 +48,11 @@ export const NavbarRoute = () => {
 			/>
 
 		</div>
+<<<<<<< HEAD
 	)
 }
+=======
+	);
+};
+
+>>>>>>> 615bf4af3c9c9908287fdde42ccc75cacc4d50bb

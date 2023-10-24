@@ -7,6 +7,10 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 615bf4af3c9c9908287fdde42ccc75cacc4d50bb
 model Widget {
   id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
 }
