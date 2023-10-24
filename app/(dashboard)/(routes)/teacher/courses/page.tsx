@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Link } from "lucide-react";
+import Link from "next/link";
 
 const CoursesPage = () => {
-    return (<div>
-        <Link href="/teacher/courses/">
-        <Button className="p-6">
-            Courses
+    return (<div className="p-6">
+        <Link href="/teacher/create">
+        <Button size="sm">
+            New Course
        </Button>
         </Link>
     </div> );
