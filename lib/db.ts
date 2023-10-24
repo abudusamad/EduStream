@@ -8,8 +8,6 @@ export const db = globalThis.prisma || new PrismaClient();
 
 if (process.env.NODE_ENV !== "production") globalThis.prisma = db;
 
-<<<<<<< HEAD
-=======
 const prisma = new PrismaClient();
 
 (async () => {
@@ -20,5 +18,4 @@ const prisma = new PrismaClient();
 	} finally {
 		prisma.$disconnect();
 	}
-})();
->>>>>>> 615bf4af3c9c9908287fdde42ccc75cacc4d50bb
+})
