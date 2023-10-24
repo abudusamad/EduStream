@@ -1,17 +1,18 @@
 import { auth } from "@clerk/nextjs";
-import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
-import Link from "next/link";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import { ArrowLeft, Eye, LayoutDashboard, Video } from "lucide-react";
 
-import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
-
+import { IconBadge } from "@/components/icon-badge";
 import { Banner } from "@/components/banner";
-import { ChapterAccessForm } from "./_components/chapter-access-form";
-import { ChapterDescriptionForm } from "./_components/chapter-description-form";
+
 import { ChapterTitleForm } from "./_components/chapter-title-form";
+import { ChapterDescriptionForm } from "./_components/chapter-description-form";
+import { ChapterAccessForm } from "./_components/chapter-access-form";
 import { ChapterVideoForm } from "./_components/chapter-video-form";
-import { ChapterActionForm } from "./_components/chapter-action-form";
+import { ChapterActions } from "./_components/chapter-action-form";
+
 const ChapterIdPage = async ({
 	params,
 }: {
@@ -51,7 +52,7 @@ const ChapterIdPage = async ({
 			{!chapter.isPublished && (
 				<Banner
 					variant="warning"
-					label="This is chapter is unpublished. It will not be visible in the course"
+					label="This chapter is unpublished. It will not be visible in the course"
 				/>
 			)}
 			<div className="p-6">
@@ -67,12 +68,11 @@ const ChapterIdPage = async ({
 						<div className="flex items-center justify-between w-full">
 							<div className="flex flex-col gap-y-2">
 								<h1 className="text-2xl font-medium">Chapter Creation</h1>
-							
 								<span className="text-sm text-slate-700">
 									Complete all fields {completionText}
 								</span>
 							</div>
-							<ChapterActionForm
+							<ChapterActions
 								disabled={!isComplete}
 								courseId={params.courseId}
 								chapterId={params.chapterId}
@@ -118,8 +118,8 @@ const ChapterIdPage = async ({
 						</div>
 						<ChapterVideoForm
 							initialData={chapter}
-							courseId={params.courseId}
 							chapterId={params.chapterId}
+							courseId={params.courseId}
 						/>
 					</div>
 				</div>
