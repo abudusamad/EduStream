@@ -8,10 +8,6 @@ datasource db {
 }
 
 
-model Widget {
-  id String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-}
-
 model Course {
   id String @id @default(uuid())
   userId String
@@ -31,8 +27,8 @@ model Course {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-    @@index([categoryId])
-    @@unique([title])
+  @@index([categoryId])
+  @@unique([title])
 }
 
 model Category {
