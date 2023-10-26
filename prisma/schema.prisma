@@ -10,9 +10,9 @@ datasource db {
 model Course {
   id String @id @default(uuid())
   userId String
-  title String @db.Text
-  description String? @db.Text
-  imageUrl String? @db.Text
+  title String @db.String()
+  description String? @db.String()
+  imageUrl String? @db.String()
   price Float?
   isPublished Boolean @default(false)
 
@@ -27,7 +27,7 @@ model Course {
   updatedAt DateTime @updatedAt
 
   @@index([categoryId])
-  @@fulltext([title])
+  @@unique([title])
 }
 
 model Category {
@@ -39,7 +39,7 @@ model Category {
 model Attachment {
   id String @id @default(uuid())
   name String
-  url String @db.Text
+  url String @db.String()
 
   courseId String
   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
@@ -53,8 +53,8 @@ model Attachment {
 model Chapter {
   id String @id @default(uuid())
   title String
-  description String? @db.Text
-  videoUrl String? @db.Text
+  description String? @db.String()
+  videoUrl String? @db.String()
   position Int
   isPublished Boolean @default(false)
   isFree Boolean @default(false)
