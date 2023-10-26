@@ -38,7 +38,7 @@ const CreatePage = () => {
             router.push(`/teacher/courses/${response.data.id}`);
             console.log("Course created successfully");
         } catch {
-            console.log("something went wrong")
+            toast.error("Something went wrong");
         }
     }
     return ( 
