@@ -3,9 +3,8 @@
 @tailwind utilities;
 
 html,
-body,
-:root {
-  height: 100%;
+body,:root{
+  height: 100;
 }
  
 @layer base {
@@ -80,9 +79,3 @@ body,
     @apply bg-background text-foreground;
   }
 }
-
-.ql-container {
-  font-size: 16px !important;
-}
-
-@import "~@uploadthing/react/styles.css"
