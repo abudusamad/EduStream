@@ -20,7 +20,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
-import { ChapterListForm } from "./chapters-list";
+import { ChaptersList } from "./chapters-list";
+
 
 interface ChapterFormProps {
 	initialData: Course & { chapters: Chapter[] };
@@ -132,7 +133,7 @@ export const ChapterForm = ({ initialData, courseId }: ChapterFormProps) => {
 					)}
 				>
                     {!initialData.chapters.length && "No chapters yet"}
-                    <ChapterListForm
+                    <ChaptersList
                         onEdit={onEdit}
                         onReorder={reReorder}
                         items={initialData.chapters || []}
