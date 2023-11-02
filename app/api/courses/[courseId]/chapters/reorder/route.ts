@@ -8,7 +8,7 @@ export async function PUT(
 ) {
 	try {
 		const { userId } = auth();
-		const { title } = await req.json();
+		const { list } = await req.json();
 		if (!userId) {
 			return new NextResponse("Unauthorized", { status: 401 });
 		}
@@ -22,7 +22,7 @@ export async function PUT(
 			return new NextResponse("Unauthorized", { status: 401 });
 		}
 
-		for (let item of title) {
+		for (let item of list) {
 			await db.chapter.update({
 				where: {
 					id: item.id,
