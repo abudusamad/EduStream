@@ -24,6 +24,7 @@ export const InfoCard = ({
 					{numberOfItems} {numberOfItems === 1 ? "Course" : "Courses"}
 				</p>
 			</div>
+
 		</div>
 	);
 };
