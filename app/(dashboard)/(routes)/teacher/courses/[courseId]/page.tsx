@@ -6,8 +6,6 @@ import {
 	ListChecks,
 } from "lucide-react";
 import { redirect } from "next/navigation";
-
-import { Banner } from "@/components/banner";
 import { IconBadge } from "@/components/icon-badge";
 import { db } from "@/lib/db";
 
@@ -19,6 +17,7 @@ import { DescriptionForm } from "./_components/description-form";
 import { ImageForm } from "./_components/image-form";
 import { PriceForm } from "./_components/price-form";
 import { TitleForm } from "./_components/course-title";
+import { Banner } from "@/components/banner";
 
 const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 	const { userId } = auth();
