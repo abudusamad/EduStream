@@ -1,18 +1,19 @@
 "use client";
 
-import { FileUpload } from "@/components/file-upload";
-import { Button } from "@/components/ui/button";
-import { Chapter, MuxData } from "@prisma/client";
+import * as z from "zod";
 import axios from "axios";
+import MuxPlayer from "@mux/mux-player-react";
 import { Pencil, PlusCircle, Video } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import * as z from "zod";
+import { useRouter } from "next/navigation";
+import { Chapter, MuxData } from "@prisma/client";
+import Image from "next/image";
 
-import MuxPlayer from "@mux/mux-player-react";
+import { Button } from "@/components/ui/button";
+import { FileUpload } from "@/components/file-upload";
 
-interface ChapaterVideoFormProps {
+interface ChapterVideoFormProps {
 	initialData: Chapter & { muxData?: MuxData | null };
 	courseId: string;
 	chapterId: string;
@@ -26,11 +27,11 @@ export const ChapterVideoForm = ({
 	initialData,
 	courseId,
 	chapterId,
-}: ChapaterVideoFormProps) => {
+}: ChapterVideoFormProps) => {
 	const [isEditing, setIsEditing] = useState(false);
-	const toggleEdit = () => {
-		setIsEditing((current) => !current);
-	};
+
+	const toggleEdit = () => setIsEditing((current) => !current);
+
 	const router = useRouter();
 
 	const onSubmit = async (values: z.infer<typeof formSchema>) => {
