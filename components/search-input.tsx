@@ -6,13 +6,16 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 
 import { Input } from "@/components/ui/input";
+import { useDebounce } from "@/hooks/use-debounce";
 
 export const SearchInput = () => {
 	const [value, setValue] = useState("");
 
 	const searchParams = useSearchParams();
 	const router = useRouter();
-	const pathname = usePathname();
+    const pathname = usePathname();
+    
+    const debouncedValue = useDebounce(value);
 
 	const currentCategoryId = searchParams.get("categoryId");
 
@@ -21,7 +24,8 @@ export const SearchInput = () => {
 			{
 				url: pathname,
 				query: {
-					categoryId: currentCategoryId,
+                    categoryId: currentCategoryId,
+                    title: debouncedValue,
 
 				},
 			},
@@ -29,7 +33,7 @@ export const SearchInput = () => {
 		);
 
 		router.push(url);
-	}, [currentCategoryId, router, pathname]);
+	}, [debouncedValue,currentCategoryId, router, pathname]);
 
 	return (
 		<div className="relative">
