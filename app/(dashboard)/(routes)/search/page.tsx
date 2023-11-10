@@ -3,6 +3,7 @@ import { Categories } from "./_components/categories";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { CoursesList } from "@/components/courses-list";
+import { getCourses } from "@/actions/get-course";
 
 
 
