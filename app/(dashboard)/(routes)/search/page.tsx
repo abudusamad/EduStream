@@ -17,12 +17,16 @@ const SearchPage = async () => {
                 name: "asc",
             },
         })
+    
+    const courses = await getCourses({
+        userId,
 
+    })
 
     return (
 			<div className="p-6 space-y-4">
             <Categories items={categories} />
-            <CoursesList/>
+            <CoursesList items={courses}/>
 			</div>
 		);
 }
