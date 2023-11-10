@@ -2,6 +2,7 @@ import { auth } from "@clerk/nextjs";
 import { Categories } from "./_components/categories";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
+import { CoursesList } from "@/components/courses-list";
 
 
 
@@ -17,9 +18,11 @@ const SearchPage = async () => {
             },
         })
 
+
     return (
 			<div className="p-6 space-y-4">
-				<Categories items={categories} />
+            <Categories items={categories} />
+            <CoursesList/>
 			</div>
 		);
 }
