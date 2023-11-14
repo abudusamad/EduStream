@@ -3,6 +3,7 @@ import { Categories } from "./_components/categories";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { SearchInput } from "@/components/search-input";
+import { CoursesList } from "@/components/courses-list";
 
 interface SearchPageProps {
     searchParams: {
@@ -32,7 +33,8 @@ const SearchPage = async ({searchParams}:SearchPageProps) => {
             </div>
 				<div className="p-6 space-y-4">
 					<Categories items={categories} />
-				</div>
+            </div>
+            <CoursesList />
 			</>
 		);
 }
