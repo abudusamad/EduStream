@@ -4,7 +4,7 @@ import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { CourseEnrollButton } from "./_components/course-enroll-button";
 import { VideoPlayer } from "./_components/video-player";
-import { CourseProgressButton } from "./course-progress-button";
+import { CourseProgressButton } from "./_components/course-progress-button";
 
 const ChapterIdPage = async ({
 	params,
