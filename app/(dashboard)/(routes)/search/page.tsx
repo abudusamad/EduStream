@@ -4,6 +4,7 @@ import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Categories } from "./_components/categories";
+import { getCourses } from "@/actions/get-courses";
 
 interface SearchPageProps {
 	searchParams: {
@@ -22,7 +23,11 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 		orderBy: {
 			name: "asc",
 		},
-	});
+    });
+    
+    const courses = await getCourses({
+        userId,
+    })
 
 	return (
 		<>
@@ -32,7 +37,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 			<div className="p-6 space-y-4">
 				<Categories items={categories} />
 			</div>
-			<CoursesList items={()=>{}}/>
+			<CoursesList items={courses}/>
 		</>
 	);
 };
