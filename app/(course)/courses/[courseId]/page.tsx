@@ -1,9 +1,10 @@
 const CourseIdPage = () => {
-    return ( 
+    return (
+
         <div>
-            Course Id Page
+            Course Page
         </div>
-     );
+    );
 }
  
 export default CourseIdPage;
