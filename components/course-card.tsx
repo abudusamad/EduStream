@@ -1,9 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { IconBadge } from "./icon-badge";
 import { BookOpen } from "lucide-react";
 import { CourseProgress } from "./course-progess";
 import { formatPrice } from "@/lib/format";
+import { useEffect, useState } from "react";
+
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface CourseCardProps {
 	id: string;
@@ -24,6 +29,17 @@ export const CourseCard = ({
 	progress,
 	category,
 }: CourseCardProps) => {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, []);
+
+    
+
+    if (isLoading) {
+        return <CourseCard.Skeleton />;
+    }
 	return (
 		<Link href={`/courses/${id}`}>
 			<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
@@ -61,5 +77,32 @@ export const CourseCard = ({
                 </div>
 			</div>
 		</Link>
+	);
+};
+
+
+CourseCard.Skeleton = function CourseCardSkeleton() {
+	return (
+		<div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
+			<div className="relative w-full aspect-video rounded-md overflow-hidden">
+				<div className="w-full h-full bg-slate-200 animate-pulse" />
+			</div>
+			<div className="flex flex-col pt-2">
+				<div className="text-lg md:text-base font-medium group-hover:text-sky-700 transition line-clamp-2">
+					<div className="w-3/4 h-4 bg-slate-200 animate-pulse" />
+				</div>
+				<div className="my-3 flex items-center gap-x-2 text-sm md:text-xs ">
+					<div className="flex items-center gap-x-1 text-slate-500">
+						<IconBadge size="sm" icon={BookOpen} />
+						<span>
+							<div className="w-3/4 h-4 bg-slate-200 animate-pulse" />
+						</span>
+					</div>
+				</div>
+				<div className="text-md md:text-sm font-medium text-slate-700">
+					<Skeleton className="w-3/4 h-4" />
+				</div>
+			</div>
+		</div>
 	);
 };
