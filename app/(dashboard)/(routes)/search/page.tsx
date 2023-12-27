@@ -9,7 +9,7 @@ import { Categories } from "./_components/categories";
 interface SearchPageProps {
 	searchParams: {
 		title: string;
-		categoryId: string;
+		name: string[];
 	};
 }
 
