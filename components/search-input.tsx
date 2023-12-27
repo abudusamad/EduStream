@@ -2,7 +2,7 @@
 import { Search } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { useDebounce } from "@/hooks/use-debounce";
@@ -18,8 +18,8 @@ export const SearchInput = () => {
 
 	const currentCategoryId = searchParams.get("categoryId");
 
-	useEffect(() => {
-		const url = qs.stringifyUrl(
+	const generatedUrl = useMemo(() => {
+		return qs.stringifyUrl(
 			{
 				url: pathname,
 				query: {
@@ -29,9 +29,12 @@ export const SearchInput = () => {
 			},
 			{ skipEmptyString: true, skipNull: true }
 		);
+	}, [pathname, debouncedValue, currentCategoryId]);
 
-		router.push(url);
-	}, [debouncedValue, currentCategoryId, router, pathname]);
+
+	useEffect(() => {
+		router.push(generatedUrl);
+	}, [generatedUrl, router]);
 
 	const onChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value),
