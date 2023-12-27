@@ -1,10 +1,10 @@
+import { getCourses } from "@/actions/get-courses";
 import { CoursesList } from "@/components/courses-list";
 import { SearchInput } from "@/components/search-input";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Categories } from "./_components/categories";
-import { getCourses } from "@/actions/get-courses";
 
 interface SearchPageProps {
 	searchParams: {
@@ -23,11 +23,12 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 		orderBy: {
 			name: "asc",
 		},
-    });
-    
-    const courses = await getCourses({
-        userId,
-    })
+	});
+
+	const courses = await getCourses({
+		userId,
+		...searchParams,
+	});
 
 	return (
 		<>
@@ -37,7 +38,7 @@ const SearchPage = async ({ searchParams }: SearchPageProps) => {
 			<div className="p-6 space-y-4">
 				<Categories items={categories} />
 			</div>
-			<CoursesList items={courses}/>
+			<CoursesList items={courses} />
 		</>
 	);
 };
