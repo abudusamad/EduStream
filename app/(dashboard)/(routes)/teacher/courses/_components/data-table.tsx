@@ -25,7 +25,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { PlusCircle } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface DataTableProps<TData, TValue> {
 	columns: ColumnDef<TData, TValue>[];
@@ -42,6 +42,8 @@ export function DataTable<TData, TValue>({
 		[]
 	);
 
+	const [isLoading, setIsLoading] =useState(true);
+
 	const table = useReactTable({
 		data,
 		columns,
@@ -56,6 +58,16 @@ export function DataTable<TData, TValue>({
 			columnFilters,
 		},
 	});
+
+	useEffect(() => {
+		setIsLoading(false);
+	}, []);
+
+	if (isLoading) {
+		return <DataTable.Skeleton />;
+	}
+
+
 
 	return (
 		<div>
@@ -139,6 +151,50 @@ export function DataTable<TData, TValue>({
 						onClick={() => table.nextPage()}
 						disabled={!table.getCanNextPage()}
 					>
+						Next
+					</Button>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+
+DataTable.Skeleton = function SkeletonDataTable() {
+	return (
+		<div className="space-y-4">
+			<div className="flex items-center py-4 justify-between">
+				<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+				<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+			</div>
+			<div className="rounded-md border">
+				<Table>
+					<TableHeader>
+						<TableRow>
+							<TableHead>
+								<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+							</TableHead>
+							<TableHead>
+								<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+							</TableHead>
+							<TableHead>
+								<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+							</TableHead>
+						</TableRow>
+					</TableHeader>
+					<TableBody>
+						<TableRow>
+							<TableCell colSpan={3} className="h-24 text-center">
+								<div className="w-1/3 h-8 bg-gray-200 rounded-md animate-pulse" />
+							</TableCell>
+						</TableRow>
+					</TableBody>
+				</Table>
+				<div className="flex items-center justify-end space-x-2 py-4">
+					<Button variant="outline" size="sm" disabled>
+						Previous
+					</Button>
+					<Button variant="outline" size="sm" disabled>
 						Next
 					</Button>
 				</div>
