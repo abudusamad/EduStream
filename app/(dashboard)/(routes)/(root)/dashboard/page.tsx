@@ -6,7 +6,7 @@ import { CoursesList } from "@/components/courses-list";
 
 import { getDashboardCourses } from "@/actions/get-dashboard";
 import { Suspense } from "react";
-import { InfoCard } from "./_components/info-card";
+import { InfoCard } from "../_components/info-card";
 
 export default async function Dashboard() {
 	const { userId } = auth();
