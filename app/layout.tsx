@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	icons: [
 		{
+			media:"(prefer color scheme: system)",
 			url: "/logo.svg",
 			href: "/logo.svg",
 		},
