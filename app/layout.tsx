@@ -6,6 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,6 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	icons: [
 		{
-			media:"(prefer color scheme: system)",
 			url: "/logo.svg",
 			href: "/logo.svg",
 		},
@@ -32,14 +32,13 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en" suppressHydrationWarning>
-				<body className={inter.className}>
+				<body className={cn(inter.className,"dark:bg-black")}>
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="system"
 						enableSystem
 						disableTransitionOnChange
 						storageKey="theme-preference"
-
 					>
 						<ConfettiProvider />
 						<ToastPovider />
