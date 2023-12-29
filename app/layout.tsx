@@ -1,10 +1,11 @@
+import { ConfettiProvider } from "@/components/providers/confetti-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ToastPovider } from "@/components/providers/toast-provider";
+import { siteConfig } from "@/config/site";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ToastPovider } from "@/components/providers/toast-provider";
-import { ConfettiProvider } from "@/components/providers/confetti-provider";
-import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,10 +17,10 @@ export const metadata: Metadata = {
 	description: siteConfig.description,
 	icons: [
 		{
-			url: '/logo.svg',
-			href: '/logo.svg',
-		}
-	]
+			url: "/logo.svg",
+			href: "/logo.svg",
+		},
+	],
 };
 
 export default function RootLayout({
@@ -29,11 +30,20 @@ export default function RootLayout({
 }) {
 	return (
 		<ClerkProvider>
-			<html lang="en">
+			<html lang="en" suppressHydrationWarning>
 				<body className={inter.className}>
-					<ConfettiProvider/>
-					<ToastPovider/>
-					{children}
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+						storageKey="theme-preference"
+
+					>
+						<ConfettiProvider />
+						<ToastPovider />
+						{children}
+					</ThemeProvider>
 				</body>
 			</html>
 		</ClerkProvider>
