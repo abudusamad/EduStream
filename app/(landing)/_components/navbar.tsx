@@ -1,15 +1,22 @@
 "use client";
 
 import { Logo } from "@/app/(dashboard)/_components/logo";
-import { Spinner } from "@/components/spinner";
 import { ModeToggle } from "@/components/theme";
 import { Button } from "@/components/ui/button";
+import { useScrollTop } from "@/hooks/use-scroll-top";
+import { cn } from "@/lib/utils";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 
 export const Navbar = () => {
-	const { isSignedIn,  } = useUser();
+	const { isSignedIn } = useUser();
+	const scrolled = useScrollTop();
 	return (
-		<div className="z-50 bg-background fixed top-0 flex items-center w-full p-6">
+		<div
+			className={cn(
+				"z-50 bg-background fixed top-0 flex items-center w-full p-6",
+				scrolled && " border-b shadow-2xl "
+			)}
+		>
 			<Logo />
 			<div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
 				{!isSignedIn && (
