@@ -20,14 +20,14 @@ export const Heading = () => {
 				<div className="flex flex-col col-span-2 space-y-9">
 					<h1 className="text-xl sm:text-5xl md:text-6xl font-bold uppercase ">
 						Efficent school, learning & school management
-						<span className="font-bold text-rose-700 underline pl-1">
+						<span className="font-bold text-blue-500  dark:text-rose-700 underline pl-1">
 							Solution
 						</span>
 					</h1>
 					<h3 className="text-2xl font-semibold md:text-3xl">
 						Ensuring Excellence and Compliance in Your Educational Environment
 					</h3>
-					<p className="md:text-2xl  font-light">
+					<p className="md:text-lg text-sm  font-light">
 						Our mission is to help educational institutions digitize and
 						simplify all processes from enrollment to alumni. Embrace a new
 						world of efficiency where back office, educators, students, and
@@ -38,7 +38,7 @@ export const Heading = () => {
 					<div className="flex space-x-4">
 						<Button
 							size="lg"
-							className="bg-rose-700 text-white text-lg font-semibold p-4 opacity-100 hover:none"
+							className=" bg-blue-500  text-white dark:bg-rose-700 text-lg font-semibold p-4 opacity-100 hover:none"
 						>
 							Talk to An Expertise
 						</Button>
@@ -66,7 +66,11 @@ export const Heading = () => {
 					d="M0,128L80,122.7C160,117,320,107,480,85.3C640,64,800,32,960,21.3C1120,11,1280,21,1360,26.7L1440,32L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
 				></path>
 			</svg>
-			<svg className="dark:hidden"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+			<svg
+				className="dark:hidden"
+				xmlns="http://www.w3.org/2000/svg"
+				viewBox="0 0 1440 320"
+			>
 				<path
 					fill="#0099ff"
 					fill-opacity="10"
