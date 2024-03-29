@@ -5,6 +5,7 @@ import { siteConfig } from "@/config/site";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Head from "next/head";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 		template: "%s | " + siteConfig.name,
 	},
 	description: siteConfig.description,
+	keywords: ["Access", "Learning", "Center"],
 	icons: [
 		{
 			url: "/logo.svg",
@@ -32,6 +34,12 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en" suppressHydrationWarning>
+			<Head>
+				<title>{metadata.title?.default}</title>
+				<link rel="icon" href="/favicon.ico" />
+
+				<meta name="keywords" content={metadata.keywords} />
+			</Head>
 				<body className={cn(inter.className,"dark:bg-black")}>
 					<ThemeProvider
 						attribute="class"
