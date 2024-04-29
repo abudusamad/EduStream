@@ -2,12 +2,11 @@ import { ConfettiProvider } from "@/components/providers/confetti-provider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ToastPovider } from "@/components/providers/toast-provider";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Head from "next/head";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -34,13 +33,7 @@ export default function RootLayout({
 	return (
 		<ClerkProvider>
 			<html lang="en" suppressHydrationWarning>
-			<Head>
-				<title>{metadata.title?.default}</title>
-				<link rel="icon" href="/favicon.ico" />
-
-				<meta name="keywords" content={metadata.keywords} />
-			</Head>
-				<body className={cn(inter.className,"dark:bg-black")}>
+				<body className={cn(inter.className, "dark:bg-black")}>
 					<ThemeProvider
 						attribute="class"
 						defaultTheme="system"
