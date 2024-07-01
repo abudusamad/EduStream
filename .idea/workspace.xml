@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ee77818a-816c-4029-b35d-ae1d1e4d077a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapters-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapters-form.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapters-list.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(dashboard)/(routes)/teacher/courses/[courseId]/_components/chapters-list.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +57,7 @@
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/mascot/Downloads/virtual-event-starter-kit-main",
+    "last_opened_file_path": "/home/mascot/Documents/Projects/image-blurring-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +98,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17890.13" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.17890.14" />
+        <option value="bundled-python-sdk-5b207ade9991-7e9c3bbb6e34-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.17890.14" />
       </set>
     </attachedChunks>
   </component>
@@ -123,6 +126,8 @@
       <workItem from="1717187981243" duration="5046000" />
       <workItem from="1718385081150" duration="104000" />
       <workItem from="1718830237999" duration="544000" />
+      <workItem from="1719175056373" duration="727000" />
+      <workItem from="1719188195043" duration="121000" />
     </task>
     <servers />
   </component>
