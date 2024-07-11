@@ -8,13 +8,12 @@ import { useEffect, useState } from "react";
 interface CategoryItemProps {
 	label: string;
 	value?: string;
-	icon?: IconType;
+
 }
 
 export const CategoryItem = ({
 	label,
 	value,
-	icon: Icon,
 }: CategoryItemProps) => {
 	const pathname = usePathname();
 	const router = useRouter();
@@ -58,7 +57,6 @@ export const CategoryItem = ({
 			)}
 			type="button"
 		>
-			{Icon && <Icon size={20} />}
 			<div className="truncate pl-1">{label}</div>
 		</button>
 	);
