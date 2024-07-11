@@ -8,18 +8,18 @@ datasource db {
 }
 
 
-model User {
-  id String @id @default(uuid())
-  username String @unique
-  imageUrl String @db.String()
-  externalUserId String @unique
-  bio String? @db.String()
+// model User {
+//   id String @id @default(uuid())
+//   username String @unique
+//   imageUrl String @db.String()
+//   externalUserId String @unique
+//   bio String? @db.String()
 
-  course Course[]
+//   course Course[]
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
+// }
 
 
 model Course {
@@ -31,7 +31,7 @@ model Course {
   price Float?
   isPublished Boolean @default(false)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   categoryId String?
   category Category? @relation(fields: [categoryId], references: [id])
