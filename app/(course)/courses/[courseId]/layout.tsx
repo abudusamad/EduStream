@@ -7,6 +7,29 @@ import { getProgress } from "@/actions/get-progress";
 import { CourseSidebar } from "./_components/course-sidebar";
 import { CourseNavbar } from "./_components/course-navbar";
 
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { courseId: string };
+};
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const course = await db.course.findUnique({
+    where: {
+      id: params.courseId,
+    },
+  });
+
+  return {
+    title: course?.title,
+    description: course?.description,
+  };
+}
+
+
 const CourseLayout = async ({
 	children,
 	params,
