@@ -13,8 +13,8 @@ export const Navbar = () => {
 	return (
 		<div
 			className={cn(
-				"z-50 bg-background fixed top-0 flex items-center w-full p-6",
-				scrolled && " border-b shadow-2xl "
+				"z-50 bg-background fixed top-0 flex items-center w-full p-2 px-8",
+				scrolled && " border-b-[1px] shadow-md "
 			)}
 		>
 			<Logo />
@@ -35,7 +35,7 @@ export const Navbar = () => {
 				)}
 				{isSignedIn && (
 					<>
-						<UserButton afterSignOutUrl="/" />
+						<UserButton afterSignOutUrl="/dashboard" />
 					</>
 				)}
 				<ModeToggle />
