@@ -24,7 +24,7 @@ export function CTAButtons() {
       )}
       {isSignedIn && (
         <Link href={"/search"}>
-          <Button variant="outline" size="default" className="text-2xl">
+          <Button variant="default" size="default" className="text-xl c">
             Browse Courses
           </Button>
         </Link>
