@@ -9,6 +9,7 @@ import { ChevronRightIcon } from "lucide-react";
 import { Poppins, Roboto } from "next/font/google";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { LogoCloud } from "./logo-cloud";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -67,25 +68,13 @@ export function Hero(props: {
                   Grow your skills with our online courses with expert tutor
                   from anywhere anytime.
                   <br />
-                  Inbox Zero is the open-source email app that puts you back in
-                  control of your inbox.
+                  Start learning with us for free.
                 </>
               )}
             </HeroSubtitle>
             <CTAButtons />
           </div>
-
-          <div className="mt-16 flow-root sm:mt-24">
-            <div className="relative -m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
-              <Image
-                src={props.image || "/images/newsletters.png"}
-                alt="Inbox screenshot"
-                width={2432}
-                height={1442}
-                className="rounded-md shadow ring-1 ring-gray-900/10"
-              />
-            </div>
-          </div>
+          <LogoCloud />
         </div>
       </div>
     </div>

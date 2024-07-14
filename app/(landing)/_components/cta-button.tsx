@@ -24,7 +24,7 @@ export function CTAButtons() {
       )}
       {isSignedIn && (
         <Link href={"/search"}>
-          <Button variant="default" size="default" className="text-xl c">
+          <Button variant="default" size="default" className="text-xl hover:scale-110 transition-transform duration-300 ease-in-out ">
             Browse Courses
           </Button>
         </Link>
