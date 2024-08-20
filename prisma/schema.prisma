@@ -9,7 +9,7 @@ datasource db {
 
 model Course {
   id String @id @default(uuid())
-  userId String @unique
+  userId String 
   title String @db.String()
   description String? @db.String()
   imageUrl String? @db.String()

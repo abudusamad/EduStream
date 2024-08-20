@@ -14,12 +14,18 @@ export async function POST(req: Request) {
 			return new NextResponse("Unauthorized", { status: 401 });
 		}
 
+		if (!title) {
+			return new NextResponse("Title is required", { status: 400 });
+		}
+
+
 		const course = await db.course.create({
 			data: {
 				userId,
 				title,
 			},
 		});
+		console.log("[COURSES]", course);
 
 		return NextResponse.json(course);
 	} catch (error) {
