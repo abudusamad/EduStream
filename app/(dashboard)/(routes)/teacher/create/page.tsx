@@ -43,25 +43,10 @@ const CreatePage = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
      try {
        const response = await axios.post("/api/courses", values);
-
-       if (response.status === 200) {
-         toast.success("Course created");
-         router.push(`/teacher/courses/${response.data.id}`);
-       } else {
-         toast.error(`Error: ${response.data}`);
-       }
-     } catch (error) {
-       if (axios.isAxiosError(error)) {
-         if (error.response?.status === 401) {
-           toast.error(
-             "Unauthorized: You don't have permission to create a course."
-           );
-         } else {
-           toast.error("Something Went Wrong");
-         }
-       } else {
-         toast.error("An unexpected error occurred");
-       }
+       router.push(`/teacher/courses/${response.data.id}`);
+       toast.success("Course created");
+     } catch {
+       toast.error("Something went wrong");
      }
   };
 
