@@ -1,6 +1,6 @@
 import { Metadata } from "next";
-import Navbar from "./_components/navbar";
 import Sidebar from "./_components/Sidebar";
+import { Navbar } from "./_components/navbar";
 
 export const metadata: Metadata = {
   title: "Stream",
@@ -13,19 +13,17 @@ interface StreamLayoutProps {
 
 
 const StreamLayout = ({children}:StreamLayoutProps) => {
-    return (
-      <main className="relative">
-        <Navbar />
-
-        <div className="flex">
-          <Sidebar />
-
-          <section className="flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 max-md:pb-14 sm:px-14">
-            <div className="w-full">{children}</div>
-          </section>
-        </div>
-      </main>
-    );
+   return (
+     <div className="h-full">
+       <div className="h-[80px] md:pl-[265px] fixed inset-y-0  w-full z-50">
+         <Navbar />
+       </div>
+       <div className="hidden md:flex h-full w-72 flex-col fixed inset-y-0 z-50 ">
+         <Sidebar />
+       </div>
+       <main className="md:pl-72 pl-9 pt-[80px] h-full">{children}</main>
+     </div>
+   );
 }
  
 export default StreamLayout;

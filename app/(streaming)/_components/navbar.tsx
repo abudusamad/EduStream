@@ -1,33 +1,45 @@
-import Image from "next/image";
-import Link from "next/link";
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import MobileNav from "./MobileNavbar";
-import { ModeToggle } from "@/components/theme";
+"use client";
 
-const Navbar = () => {
+import { Logo } from "@/app/(dashboard)/_components/logo";
+import { ModeToggle } from "@/components/theme";
+import { Button } from "@/components/ui/button";
+import { useScrollTop } from "@/hooks/use-scroll-top";
+import { cn } from "@/lib/utils";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+
+export const Navbar = () => {
+  const { isSignedIn } = useUser();
+  const scrolled = useScrollTop();
   return (
-    <nav className="flex-between fixed z-50 w-full px-6 py-4 lg:px-10 border-b-[2px]">
-      <Link href="/" className="flex items-center gap-1">
-        <Image
-          src="/logo.svg"
-          width={32}
-          height={32}
-          alt="yoom logo"
-          className="max-sm:size-10"
-        />
-        <p className="font-bold max-sm:hidden">EduStream</p>
-      </Link>
-      <div className="flex justify-between items-center gap-5">
-        <SignedIn>
-          <UserButton afterSignOutUrl="/sign-in" />
-        </SignedIn>
-        <div>
-          <ModeToggle />
-          <MobileNav />
-        </div>
+    <div
+      className={cn(
+        "z-50 bg-background fixed top-0 flex items-center w-full p-2 px-8",
+        scrolled && " border-b-[1px] shadow-md "
+      )}
+    >
+      <Logo />
+      <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
+        {!isSignedIn && (
+          <>
+            <SignInButton mode="modal">
+              <Button variant="ghost" size="sm">
+                Log In
+              </Button>
+            </SignInButton>
+            <SignInButton mode="modal">
+              <Button variant="ghost" size="sm">
+                Get Started for Free
+              </Button>
+            </SignInButton>
+          </>
+        )}
+        {isSignedIn && (
+          <>
+            <UserButton afterSignOutUrl="/dashboard" />
+          </>
+        )}
+        <ModeToggle />
       </div>
-    </nav>
+    </div>
   );
 };
-
-export default Navbar;
