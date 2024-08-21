@@ -24,11 +24,24 @@ export function CTAButtons() {
       )}
       {isSignedIn && (
         <Link href={"/search"}>
-          <Button variant="default" size="default" className="text-xl hover:scale-110 transition-transform duration-300 ease-in-out ">
+          <Button
+            variant="default"
+            size="default"
+            className="text-xl hover:scale-110 transition-transform duration-300 ease-in-out "
+          >
             Browse Courses
           </Button>
         </Link>
       )}
+      <Link href={"/stream-home"}>
+        <Button
+          variant="default"
+          size="default"
+          className="text-xl hover:scale-110 transition-transform duration-300 ease-in-out "
+        >
+          Stream
+        </Button>
+      </Link>
     </div>
   );
 }
