@@ -1,4 +1,4 @@
-import MeetingTypeList from "../_components/MeetingTypeList";
+import MeetingTypeList from "../../_components/MeetingTypeList";
 
 const StreamHome = () => {
   const now = new Date();
