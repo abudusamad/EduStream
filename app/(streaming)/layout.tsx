@@ -1,7 +1,11 @@
+import { Metadata } from "next";
 import Navbar from "./_components/navbar";
 import Sidebar from "./_components/Sidebar";
 
-
+export const metadata: Metadata = {
+  title: "Stream",
+  description: "A workspace for your team, powered by Stream Chat and Clerk.",
+};
 
 interface StreamLayoutProps {
     children: React.ReactNode;
