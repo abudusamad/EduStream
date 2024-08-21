@@ -5,7 +5,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'img.clerk.com',
-      },
+       },
+       {
+        protocol: 'https',
+        hostname: 'utfs.io',
+      }
     ],
 	},
 	experimental: {
