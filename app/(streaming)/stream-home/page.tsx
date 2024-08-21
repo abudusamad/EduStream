@@ -1,3 +1,4 @@
+import MeetingTypeList from "../_components/MeetingTypeList";
 
 const StreamHome = () => {
   const now = new Date();
@@ -23,7 +24,7 @@ const StreamHome = () => {
           </div>
         </div>
       </div>
-
+      <MeetingTypeList />
     </section>
   );
 };
