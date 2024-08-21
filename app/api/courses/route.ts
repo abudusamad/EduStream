@@ -24,8 +24,7 @@ export async function POST(req: Request) {
 				userId,
 				title,
 			},
-		});
-		console.log("[COURSES]", course);
+		})
 
 		return NextResponse.json(course);
 	} catch (error) {
