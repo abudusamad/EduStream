@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { useGetCallById } from "@/hooks/useGetCallById";
+import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
 
 const Table = ({
   title,
@@ -17,7 +19,7 @@ const Table = ({
 }) => {
   return (
     <div className="flex flex-col items-start gap-2 xl:flex-row">
-      <h1 className="text-base font-medium text-sky-1 lg:text-xl xl:min-w-32">
+      <h1 className="text-base font-medium text-neutral-600 lg:text-xl xl:min-w-fit">
         {title}:
       </h1>
       <h1 className="truncate text-sm font-bold max-sm:max-w-[320px] lg:text-xl">
@@ -32,8 +34,20 @@ const PersonalRoom = () => {
   const { user } = useUser();
   const client = useStreamVideoClient();
   const { toast } = useToast();
+  const [meetingId, setMeetingId] = useState<string | null>(null);
+  
+useEffect(() => {
+  // Check if there's already a meeting ID in localStorage
+  let storedMeetingId = localStorage.getItem("personalMeetingId");
 
-  const meetingId = user?.id;
+  if (!storedMeetingId) {
+    // Generate a new meeting ID and store it
+    storedMeetingId = uuidv4();
+    localStorage.setItem("personalMeetingId", storedMeetingId);
+  }
+
+  setMeetingId(storedMeetingId);
+}, []);
 
   const { call } = useGetCallById(meetingId!);
 
@@ -53,7 +67,9 @@ const PersonalRoom = () => {
     router.push(`/meeting/${meetingId}?personal=true`);
   };
 
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL!}/meeting/${meetingId}?personal=true`;
+  const  BASE_URL=process.env.NEXT_PUBLIC_BASE_URL!
+
+  const meetingLink = `${BASE_URL}/meeting/${meetingId}?personal=true`;
 
   return (
     <section className="flex size-full flex-col gap-10 px-4">
@@ -68,7 +84,7 @@ const PersonalRoom = () => {
           Start Meeting
         </Button>
         <Button
-          className="bg-dark-3"
+          variant="secondary"
           onClick={() => {
             navigator.clipboard.writeText(meetingLink);
             toast({
