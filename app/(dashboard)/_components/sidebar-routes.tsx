@@ -1,6 +1,6 @@
 "use client";
 
-import { Layout,Compass, List, BarChart } from "lucide-react";
+import { Layout,Compass, List, BarChart, Video } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { SidebarItem } from "./sidebar-items";
 
@@ -16,6 +16,10 @@ const guestRoutes = [
         label: "Browse",
         href: "/search"
         
+    }, {
+        icon: Video,
+        label: "Streams",
+        href: "/stream-home"
     }
 ]
 
