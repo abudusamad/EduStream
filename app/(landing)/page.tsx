@@ -1,5 +1,6 @@
 
 import { Footer } from "./_components/footer";
+import GetStarted from "./_components/get-started";
 import { Heading } from "./_components/heading";
 import { Hero } from "./_components/hero-section";
 import { Testimony } from "./_components/testimonies";
@@ -9,7 +10,7 @@ const LandingPage = () => {
     <div className="min-h-screen w-full font-sans flex flex-col">
       <main className="flex-grow">
         <Hero/>
-        <Testimony />
+        <GetStarted/>
         <Footer />
       </main>
     </div>
