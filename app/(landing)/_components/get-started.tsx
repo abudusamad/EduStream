@@ -24,7 +24,7 @@ const GetStarted = () => (
       intersectionRootMargin="0px 0px 600px 0px"
       animationRootMargin="0px 0px 300px 0px"
     />
-    <Container className="flex flex-col items-center justify-center">
+    <Container className=" flex flex-col items-center justify-center">
       <h2
         className={clsx(
           "relative text-center font-title text-[68px] font-medium leading-[0.9] -tracking-[0.03em] ",
