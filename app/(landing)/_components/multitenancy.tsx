@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 const font = Poppins({
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["500"],
 });
 
 const Multitenancy = () => (
