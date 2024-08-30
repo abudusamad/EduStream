@@ -26,6 +26,7 @@ export const getCourses = async ({
 				isPublished: true,
 				title: {
 					contains: title,
+
 				},
 				categoryId,
 			},
