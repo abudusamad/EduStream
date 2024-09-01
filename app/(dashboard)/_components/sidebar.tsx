@@ -10,7 +10,7 @@ const Sidebar = () => {
     <div className="h-full border-r flex flex-col overflow-y-auto bg-white dark:bg-black shadow-sm">
       <div
         className="py-4  pl-6 flex items-center justify-start cursor-pointer"
-        onClick={() => router.push("/dashboard")}
+        onClick={() => router.push("/search")}
       >
         <Logo />
         <span className="pl-4">EduStream</span>

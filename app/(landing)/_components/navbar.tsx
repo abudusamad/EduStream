@@ -34,7 +34,7 @@ export const Navbar = () => {
 				)}
 				{isSignedIn && (
 					<>
-						<UserButton afterSignOutUrl="/dashboard" />
+						<UserButton afterSignOutUrl="/search" />
 					</>
 				)}
 				<ModeToggle />
