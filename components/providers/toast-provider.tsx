@@ -6,7 +6,7 @@ import { ToastProvider } from "../ui/toast";
 export const ToastPovider = () => {
   return (
     <>
-      <Toaster />;
+      <Toaster />
       <ToastProvider />
     </>
   );
