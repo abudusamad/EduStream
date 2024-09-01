@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Page() {
   return (
     <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2">
-      <div className="h-full lg:flex flex-col items-center lg:grid-cols-2">
+      <div className="h-full lg:flex flex-col items-center lg:grid-cols-2 border-r">
         <div className="text-center space-y-4 pt-16">
           <h1 className="font-bold text-3xl">Welcome Back!</h1>
           <p className="text-base text-[#7E8CA0]">
@@ -21,8 +21,14 @@ export default function Page() {
           </ClerkLoading>
         </div>
       </div>
-      <div className="h-full hidden lg:flex items-center justify-center">
-        <Image src="/logo.svg" alt="Sign in" width={100} height={100} />
+      <div className="h-full hidden lg:flex flex-col items-center justify-center text-center space-y-4 pt-16">
+        <div className="flex items-center justify-between">
+          <Image src="/logo.svg" alt="Sign in" width={50} height={50} />
+          <span className="font-bold text-2xl">EduStream</span>
+        </div>
+        <div>
+          <Image src="/sign-n.jpg" alt="Sign in" width={700} height={800} />
+        </div>
       </div>
     </section>
   );
