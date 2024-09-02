@@ -1,5 +1,5 @@
 import { getAnalytics } from "@/actions/get-analytics";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { DataCard } from "./_components/data-card";
 import { Chart } from "./_components/chat";
